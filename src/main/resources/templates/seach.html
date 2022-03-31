@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Seach</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body class="container">
+    <br>
+    <h1>Seach  <small>Search for what you think</small></h1>
+    <br>
+    <form class="form-inline" action="/seachAll" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control"  name="url" id="url" placeholder="url">
+        </div>
+        <div class="form-group">
+            &nbsp;or &nbsp;<input type="text" class="form-control"   name="body" id="body" placeholder="body">
+        </div>
+        &nbsp;<button type="submit" class="btn btn-primary">Seach</button>
+        <!--<a role="button" class="btn btn-primary" th:href="@{'/seachAll/'+Tom}">Seach</a>-->
+    </form>
+    <br>
+    <table class="table table-striped">
+        <THEAD>
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>URL</th>
+            <th>Body</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </THEAD>
+        <TBODY>
+        <tr th:each = "serviceEntity:${seachAll}">
+            <td th:text="${serviceEntity.serviceId}" ></td>
+            <td th:text="${serviceEntity.type}" ></td>
+            <td th:text="${serviceEntity.url}" ></td>
+            <td th:text="${serviceEntity.body}" ></td>
+            <td ><a th:href="${'/edit/'+serviceEntity.serviceId}">edit</a></td>
+            <td><a th:href="${'/del/'+serviceEntity.serviceId}" >delete</a></td>
+        </tr>
+        </TBODY>
+    </table>
+    <a role="button" class="btn btn-success" href="/list">Index</a>
+</body>
+</html>

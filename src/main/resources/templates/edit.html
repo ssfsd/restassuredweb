@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body class="container">
+    <br>
+    <h1>Edit: <small>Please fill in the information for the change</small></h1>
+    <br>
+    <form action="/update" method="post"  class="form-horizontal">
+        <fieldset disabled>
+            <div class="form-group has-success has-feedback">
+                <label for="serviceId" class="col-sm-1 control-label">ID</label>
+                <div class="col-sm-5">
+                    <input type="text" th:value="${serviceEntity.serviceId}"  placeholder="Disabled input" class="form-control" id="serviceId" aria-describedby="inputSuccess2Status">
+                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                    <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                </div>
+            </div>
+        </fieldset>
+      <input type="text" name="serviceId" th:value="${serviceEntity.serviceId}" style="display:none">
+        <div class="form-group">
+            <label for="type" class="col-sm-1 control-label">Type:</label>
+            <div class="col-sm-5">
+                <input id="type" class="form-control" type="text" th:value="${serviceEntity.type}" name="type">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="url" class="col-sm-1 control-label">Url:</label>
+            <div class="col-sm-5">
+                <input type="text" id="url" class="form-control" th:value="${serviceEntity.url}" name="url">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="body" class="col-sm-1 control-label">Body:</label>
+            <div class="col-sm-5">
+                <input id="body" class="form-control" type="text" th:value="${serviceEntity.body}" name="body">
+            </div>
+        </div>
+        <input type="submit" class="btn btn-info" value="OK">
+        &nbsp;&nbsp;&nbsp;
+        <a class="btn btn-info" th:href="${'/edit/'+serviceEntity.serviceId}">Reset</a>
+        &nbsp;&nbsp;&nbsp;
+        <a class="btn btn-success" href="/list">Index</a>
+    </form>
+</body>
+</html>

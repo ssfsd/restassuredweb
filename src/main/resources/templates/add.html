@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body class="container">
+    <br>
+    <h1>添加<small>请填写下面的表格</small></h1>
+    <br>
+    <form action="/add" class="form-horizontal" method="post">
+        <div class="form-group">
+            <label for="type" class="col-sm-1 control-label">Type:</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" id="type" name="type">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="url" class="col-sm-1 control-label">Url:</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" id="url" name="url">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="body" class="col-sm-1 control-label">Body</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" id="body" name="body">
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="btn btn-info" value="Submit" type="submit">
+            &nbsp;&nbsp;&nbsp;
+            <input class="btn btn-info" value="Reset" type="reset">
+            &nbsp;&nbsp;&nbsp;
+            <a class="btn btn-success" href="/list">Index</a>
+        </div>
+    </form>
+</body>
+</html>
